@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   input.addEventListener("input", () => {
-    if (input.value.trim() === currentWord) {
+    if (input.value.trim().toLowerCase() === currentWord.toLowerCase()) {
       score++;
       scoreElement.textContent = score;
       input.value = "";

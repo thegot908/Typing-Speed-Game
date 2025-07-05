@@ -12,56 +12,54 @@ let score = 0;
 let currentWord = "";
 let timer;
 
-const wordElement = document.getElementById("word");
-const input = document.getElementById("input");
-const timeElement = document.getElementById("time");
-const scoreElement = document.getElementById("score");
-const message = document.getElementById("message");
-const startBtn = document.getElementById("start-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  const wordElement = document.getElementById("word");
+  const input = document.getElementById("input");
+  const timeElement = document.getElementById("time");
+  const scoreElement = document.getElementById("score");
+  const message = document.getElementById("message");
+  const startBtn = document.getElementById("start-btn");
 
-function showNewWord() {
-  currentWord = words[Math.floor(Math.random() * words.length)];
-  wordElement.textContent = currentWord;
-}
-
-function startGame() {
-  showNewWord();
-  input.value = "";
-  score = 0;
-  time = 10;
-  scoreElement.textContent = score;
-  timeElement.textContent = time;
-  message.textContent = "";
-
-  clearInterval(timer);
-  timer = setInterval(updateTime, 1000);
-}
-
-function updateTime() {
-  time--;
-  timeElement.textContent = time;
-  if (time === 0) {
-    clearInterval(timer);
-    message.textContent = "Game Over! Your score: " + score;
-    wordElement.textContent = "";
-    input.disabled = true;
-    startBtn.style.display = "inline-block"; // show start to play again
+  function showNewWord() {
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    wordElement.textContent = currentWord;
   }
-}
 
-input.addEventListener("input", () => {
-  if (input.value === currentWord) {
-    score++;
-    scoreElement.textContent = score;
+  function updateTime() {
+    time--;
+    timeElement.textContent = time;
+    if (time === 0) {
+      clearInterval(timer);
+      input.disabled = true;
+      message.textContent = "Game Over! Your score: " + score;
+      wordElement.textContent = "";
+    }
+  }
+
+  function startGame() {
+    score = 0;
+    time = 10;
     input.value = "";
+    input.disabled = false;
+    input.focus();
+    message.textContent = "";
+    scoreElement.textContent = score;
+    timeElement.textContent = time;
     showNewWord();
-    time = 10; // reset time on correct word
+    clearInterval(timer);
+    timer = setInterval(updateTime, 1000);
   }
-});
 
-startBtn.addEventListener("click", () => {
-  startBtn.style.display = "none";
-  input.disabled = false;
-  input.focus();
-  startGame();
+  input.addEventListener("input", () => {
+    if (input.value.trim() === currentWord) {
+      score++;
+      scoreElement.textContent = score;
+      input.value = "";
+      showNewWord();
+      time = 10;
+      timeElement.textContent = time;
+    }
+  });
+
+  startBtn.addEventListener("click", startGame);
 });

@@ -36,21 +36,3 @@ body {
   margin-top: 10px;
 }
 
-body {
-  
-  background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fneon-city&psig=AOvVaw16kfwZgsArWe_ZWwtduVGe&ust=1751808664842000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIixnfvppY4DFQAAAAAdAAAAABAE) no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-}
-
-.game-container {
-  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
-  padding: 20px;
-  max-width: 500px;
-  margin: 80px auto;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-  text-align: center;

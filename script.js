@@ -5,6 +5,14 @@ const words = [
   "Hello", "Banana", "Keyboard", "Car", "Apple",
   "School", "Javascript", "Code", "Laptop", "Game",
   "Fast", "Word", "Typing", "Score", "Speed"
+  "sun", "moon", "river", "tree", "mountain",
+"computer", "python", "keyboard", "mouse", "screen",
+"city", "village", "school", "teacher", "student",
+"phone", "tablet", "camera", "music", "video",
+"Sun", "Moon", "River", "Tree", "Mountain",
+"Computer", "Python", "Keyboard", "Mouse", "Screen",
+"City", "Village", "School", "Teacher", "Student",
+"Phone", "Tablet", "Camera", "Music", "Video"
 ];
 
 let time = 10;

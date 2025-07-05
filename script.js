@@ -1,7 +1,7 @@
 const words = [
   "hello", "banana", "keyboard", "car", "apple",
   "school", "javascript", "code", "laptop", "game",
-  "fast", "word", "typing", "score", "speed"
+  "fast", "word", "typing", "score", "speed",
   "Hello", "Banana", "Keyboard", "Car", "Apple",
   "School", "Javascript", "Code", "Laptop", "Game",
   "Fast", "Word", "Typing", "Score", "Speed"
@@ -17,6 +17,7 @@ const input = document.getElementById("input");
 const timeElement = document.getElementById("time");
 const scoreElement = document.getElementById("score");
 const message = document.getElementById("message");
+const startBtn = document.getElementById("start-btn");
 
 function showNewWord() {
   currentWord = words[Math.floor(Math.random() * words.length)];
@@ -30,6 +31,7 @@ function startGame() {
   time = 10;
   scoreElement.textContent = score;
   timeElement.textContent = time;
+  message.textContent = "";
 
   clearInterval(timer);
   timer = setInterval(updateTime, 1000);
@@ -42,6 +44,8 @@ function updateTime() {
     clearInterval(timer);
     message.textContent = "Game Over! Your score: " + score;
     wordElement.textContent = "";
+    input.disabled = true;
+    startBtn.style.display = "inline-block"; // show start to play again
   }
 }
 
@@ -51,8 +55,13 @@ input.addEventListener("input", () => {
     scoreElement.textContent = score;
     input.value = "";
     showNewWord();
-    time = 10; // reset time
+    time = 10; // reset time on correct word
   }
 });
 
-window.addEventListener("load", startGame);
+startBtn.addEventListener("click", () => {
+  startBtn.style.display = "none";
+  input.disabled = false;
+  input.focus();
+  startGame();
+});

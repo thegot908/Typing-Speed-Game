@@ -1,5 +1,7 @@
 const words = [
-  "hello", "banana", "keyboard", "car", "apple",
+  "score", "speed",
+"Hello", 
+ "banana", "keyboard", "car", "apple",
   "school", "javascript", "code", "laptop", "game",
   "fast", "word", "typing", "score", "speed",
   "Hello", "Banana", "Keyboard", "Car", "Apple",
